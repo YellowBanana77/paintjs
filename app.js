@@ -38,8 +38,7 @@ function onMouseMove(event) {
     if (!painting) {
         ctx.beginPath(); //이건 필요 없을거 같은데.
         ctx.moveTo(x, y);
-    }
-    {
+    } {
         ctx.lineTo(x, y);
         ctx.stroke();
     }
@@ -87,10 +86,10 @@ function handleSaveClick() {
 function loadImage(file) {
     var reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = function(e) {
+    reader.onload = function (e) {
         var img = new Image();
-        img.onload = function() {
-            ctx.drawImage(img, 0, 0, 700, 700);
+        img.onload = function () {
+            ctx.drawImage(img, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
         };
         img.src = e.target.result;
     };
